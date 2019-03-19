@@ -1,0 +1,27 @@
+//Посчитать количество точек и запятых в предложении
+
+#include "stdio.h"
+#include "iostream"
+
+using namespace std;
+const size_t N = 120;
+typedef char cha[N];
+int main() {
+	int i = 0,k=0;
+	int lenght = 0;
+
+	cha A;
+	cout << "Vvedite";
+	gets_s(A);
+	while (true) {
+		if (A[i] != '\0') {
+			lenght++;
+			i++;
+		}
+		else break;
+	}
+	for (i = 0; i < lenght; i++)
+		if (A[i] == '.' || A[i] == ',') { k++; }
+	cout << "Vashe znachenie" << k;
+	return 0;
+}
