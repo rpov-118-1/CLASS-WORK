@@ -1,0 +1,74 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main() {
+	int **A;
+	int i, j;
+	int SIZE;
+	srand(time(NULL));
+	cin>>SIZE;
+		cout<<"======================================================="<<endl;
+	A = (int**)malloc(SIZE * sizeof(int*));
+		for (i = 0; i < SIZE; i++) {
+		A[i] = (int*)malloc(SIZE  * sizeof(int));
+	}
+
+	for (i = 0; i < SIZE; i++) {
+		for (j = 0; j <SIZE; j++) {
+			A[i][j] = rand()%10;
+		}
+	}
+
+	for (i = 0; i < SIZE; i++) {
+		for (j = 0; j < SIZE; j++) {
+			cout<< A[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout<<"======================================================="<<endl;
+	int **B;
+	int k, m;
+	srand(time(NULL));
+	B = (int**)malloc(SIZE * sizeof(int*));
+
+	for (k = 0; k < SIZE; k++) {
+		B[k] = (int*)malloc(SIZE  * sizeof(int));
+	}
+
+	for (k = 0; k < SIZE; k++) {
+		for (m = 0; m <SIZE; m++) {
+			B[k][m] = rand()%10;
+		}
+	}
+
+	for (k = 0; k < SIZE; k++) {
+		for (m = 0; m < SIZE; m++) {
+			cout<< A[k][m] << " ";
+		}
+		cout << endl;
+	}
+		cout<<"======================================================="<<endl;
+	int **Z;
+	int q, w;
+	Z = (int**)malloc(SIZE * sizeof(int*));
+
+	for (q = 0; q < SIZE; q++) {
+		Z[q] = (int*)malloc(SIZE * sizeof(int));
+	}
+
+	for (q = 0; q < SIZE; q++) {
+		for (w = 0; w <SIZE; w++) {
+			Z[q][w] =A[q][w]+B[q][w];
+		}
+	}
+
+	for (q = 0; q < SIZE; q++) {
+		for (w = 0; w < SIZE; w++) {
+			cout<< Z[q][w] << " ";
+		}
+		cout << endl;
+	}
+		free(A);
+		free(B);
+	free(Z);
+}
