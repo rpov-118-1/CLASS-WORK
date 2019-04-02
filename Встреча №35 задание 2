@@ -1,0 +1,29 @@
+Задание 2:
+Написать программу, которая дает пользователю ввести 5 фамилий студентов, а затем находит среди них самую длинную фамилию.
+#include "pch.h"
+#include "pch.h"
+#include "iostream"
+#include "ctime"
+#include "stdlib.h"
+#include "stdlib.h"
+#include "stdio.h"
+#include "cstdio"
+#include "cstring"
+#include <functional>
+using namespace std;
+
+
+int main() {
+	char A[5][1024];
+	int B[5] = { 0 };
+	int index=0, max = 0;
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "vvedite"<<endl;
+		cin >> A[i];
+		B[i] = strlen(A[i]);
+		if (B[i] > max) { max = B[i]; index = i; }
+	}
+
+	cout << "\nfamiliy\t" << A[index];
+}
