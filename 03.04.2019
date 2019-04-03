@@ -1,0 +1,61 @@
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+
+struct drob {
+	long long int chisl;
+	long long int znam;
+};
+
+void plus(drob& r1, drob& r2)
+{
+	int ch = 0, zn = 0;
+	ch = (r1.chisl * r1.znam) + (r2.chisl * r2.znam);
+	zn = r2.chisl * r1.znam;
+	std::cout << "Sum = " << ch << "/" << zn << std::endl;
+}
+
+void minus(drob& r1, drob& r2)
+{
+	int ch = 0, zn = 0;
+	ch = (r1.chisl * r1.znam) - (r2.chisl * r2.znam);
+	zn = r2.chisl * r1.znam;
+	std::cout << "Minus = " << ch << "/" << zn << std::endl;
+}
+
+void umn(drob& r1, drob& r2)
+{
+	int ch = 0, zn = 0;
+	ch = r1.chisl * r2.chisl;
+	zn = r1.znam * r2.znam;
+	std::cout << "Umn = " << ch << "/" << zn << std::endl;
+}
+
+void del(drob& r1, drob& r2)
+{
+	int ch = 0, zn = 0;
+	ch = r1.chisl / r2.chisl;
+	zn = r1.znam / r2.znam;
+	std::cout << "Del = " << ch << "/" << zn << std::endl;
+}
+
+void step(drob& r1, int step)
+{
+	int ch = 0, zn = 0;
+	ch = pow(r1.chisl, step);
+	zn = pow(r1.znam, step);
+	std::cout << "Step = " << ch << "/" << zn << std::endl;
+}
+
+int main()
+{
+	drob r1 = {3,5};
+	drob r2 = {3,4};
+	plus(r1, r2);
+	minus(r1, r2);
+	umn(r1, r2);
+	del(r1, r2);
+	step(r1, 3);
+
+	return 0;
+}
