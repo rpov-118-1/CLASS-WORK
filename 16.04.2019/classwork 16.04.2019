@@ -1,0 +1,25 @@
+#include "iostream"
+
+
+
+int main(){
+#define MIN(x,y) ((x)<(y)?(x):(y))
+#define MAX(x,y) ((x)>(y)?(x):(y))
+#define SQUAD(x) (x)*(x)
+#define PARITY(x) (((x) % (2)) == 0)?true:false
+#define ODD(x) (((x) % (2)) != 0)?true:false
+	if (PARITY(5)) {
+		std::cout << "Even\n";
+	}
+	else std::cout << "Odd\n";
+
+	if (ODD(5)) {
+		std::cout << "Odd\n";
+	}
+	else std::cout << "Even\n";
+	
+
+
+
+	return 0;
+}
