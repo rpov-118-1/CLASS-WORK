@@ -8,6 +8,9 @@ int main(){
 #define SQUAD(x) (x)*(x)
 #define PARITY(x) (((x) % (2)) == 0)?true:false
 #define ODD(x) (((x) % (2)) != 0)?true:false
+#define POW(x,n) ((n == 1)?(x):(n == 2)?((x) * (x)):(n == 3)?((x) * (x) * (x)):1)
+
+
 	if (PARITY(5)) {
 		std::cout << "Even\n";
 	}
