@@ -1,0 +1,25 @@
+
+#include "pch.h"
+#include <iostream>
+using namespace std;
+
+int main()
+{
+#define MIN(x,y) (((x)<(y))?(x):(y))
+#define MAX(x,y) (((x)>(y))?(x):(y))
+#define KV(x) ((x)*(x))
+#define ST(x) ((x)*(x))
+#define EVEN(x) ((x)%(2)==0?x:1)
+#define ODD(x) ((x)%(2)!=0?x:1)
+#define POW(x,n) ((n==1)?(x):(n==2)?(x*x):(n==3)?(x*x*x):1)
+
+    
+	//cout << MIN(5, 10);
+	//cout << MAX(5, 10);
+	//cout << KV(5);
+	//cout << EVEN(2);
+	//cout << ODD(3);
+	cout << POW(3, 3);
+	return 0;
+}
+
