@@ -1,0 +1,38 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string strInput, strWord;
+	fstream fbase, fwords, fout;
+	fbase.open("base.txt");
+	fout.open("out.txt");
+
+	if (!fbase || !fwords || !fout)
+	{
+		cerr << "files could not be opened" << endl;
+		exit(1);
+	}
+
+	while (fbase)
+	{
+		fbase >> strInput;
+		bool isWord{ false };
+
+		fwords.open("words.txt");
+		while (fwords)
+		{
+			fwords >> strWord;
+			if (strInput == strWord)
+				isWord = true;
+		}
+		fwords.close();
+		if (!isWord)
+			fout  << strInput << " ";
+	}
+	fbase.close();
+	fout.close();
+}
