@@ -1,0 +1,47 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <conio.h>
+#include <windows.h>
+
+using namespace std;
+
+//ofstream outfile("chat.txt"); //на запись
+
+int main()
+{
+	setlocale(LC_ALL, "");
+
+	string line;
+	ifstream myfile("chat.txt");
+	for (;;) {
+		if (myfile.is_open())
+		{
+			while (!myfile.eof())
+			{
+				getline(myfile, line); //Читаем файл, содержимое
+				cout << line << endl;
+			}
+			myfile.close();
+		}
+		else cout << "Не получилось открыть файл" << endl;
+
+		while (true) {
+			bool pressed = _kbhit();
+			cout << "Обычный текст" << endl;
+			if (pressed)
+			{
+				cout << "Теперь вводите текст: " << endl;
+				_getch_nolock();
+				ofstream chat;
+				chat.open("chat.txt", ofstream::app);
+				getline(cin, line);
+				chat << line << endl;
+
+			}
+			Sleep(400);
+		}
+	}
+		system("pause");
+	return 0;
+}
