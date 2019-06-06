@@ -1,0 +1,40 @@
+#include <iostream>
+#include <array>
+#include <string>
+using namespace std;
+
+class Array {
+private: constexpr static int N = 100000;
+public:
+	array<int, N> arr;
+	unsigned schetchik;
+	//Array() = default;
+	//Array(Array&& old) {
+	//	schetchik = std::move(old.schetchik);
+	//	arr = std::move(old.arr);
+	//}
+	void push(int x)
+	{
+		if (schetchik == N) {
+			cout << "Get the fuck out here!!!" << endl;
+			return;
+		}
+		arr[schetchik] = x;
+		schetchik++;
+	}
+	
+};
+
+int main() { 
+	for (int i = 0; i < 1000; i++) {
+		Array x = {};
+		for (int k = 0; k < 99990; k++) {
+			x.push(k);
+		}
+		Array y = x; 
+		// Array y = std::move(x);
+		y.push(100500);
+	}
+
+	return 0;
+}
