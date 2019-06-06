@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class point {
+private:
+	int x;
+	int y;
+	int z;
+public:
+	point() {
+		x = y = z = 0;
+	}
+	point(int x1) {
+		x = x1;
+	}
+	point(int x1, int y1) {
+		x = x1;
+		y = y1;
+	}
+	point(int x1, int y1, int z1) {
+		x = x1;
+		y = y1;
+		z = z1;
+	}
+	~point() {};
+public:
+	inline void PrintPoint() {
+		std::cout << "x: " << x << "; y: " << y << "; z: " << z << std::endl;
+	}
+	inline void setpoint() {
+		std::cin >> x >> y >> z;
+	}
+};
+	int main()
+{
+		point p(4, 5, 8);
+		point p2;
+		p2.setpoint();
+		p.PrintPoint();
+		p2.PrintPoint();
+}
+	
