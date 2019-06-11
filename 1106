@@ -1,0 +1,37 @@
+#include <cstdio>
+#include <conio.h>
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+class mystring {
+private: char * arr; int size;
+public:
+	mystring() { // Конструктор по умолчанию, позволяющий создать строку длиной 80 символов
+		arr = new char[80];
+		size = 80;
+	}
+	mystring(size_t sz) { // Конструктор, позволяющий создавать строку произвольного размера
+		arr = new char[sz];
+	}
+	mystring(char* str) { // Конструктор, который создаёт строку и инициализирует её строкой, полученной от пользователя;
+		size_t sz = strlen(str);
+		strcpy_s(arr, sz, str);
+		size = sz;
+	}
+	mystring(const mystring& old) {
+		strcpy_s(arr, old.size, old.arr);
+		size = old.size;
+	}
+	mystring(mystring&& old) {
+		arr = old.arr;
+		size = old.size;
+	}
+	~mystring()
+	{
+		delete[] arr;
+	}
+};
+
+int main() {
+}
