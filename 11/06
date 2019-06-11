@@ -1,0 +1,76 @@
+#include <iostream>
+#include <array>
+#include <string>
+
+using namespace std;
+
+class Fraction {
+private:
+	long numerator;
+	long denominator;
+public:
+	Fraction() = default;
+	Fraction(long n, long d) {
+		numerator = n;
+		denominator = d;
+	}
+	Fraction(Fraction&& old) {
+		numerator = std::move(old.numerator);
+		denominator = std::move(old.denominator);
+	}
+
+	Fraction sum(const Fraction& target)
+	{
+		Fraction result = { };
+		result.numerator = target.denominator * numerator + denominator * target.numerator;
+		result.denominator = denominator * target.denominator;
+		return result;
+	}
+	Fraction subtraction(const Fraction& target)
+	{
+		Fraction result = { };
+		result.numerator = target.denominator * numerator - denominator * target.numerator;
+		result.denominator = denominator * target.denominator;
+		return result;
+	}
+
+	Fraction division(const Fraction& target)
+	{
+		Fraction result = { };
+		result.numerator = numerator * target.numerator;
+		result.denominator = denominator * target.denominator;
+		return result;
+	}
+
+	Fraction  multiplication(const Fraction& target)
+	{
+		Fraction result = { };
+		result.numerator = numerator * target.denominator;
+		result.denominator = denominator * target.numerator;
+		return result;
+	}
+
+	void print() const {
+		std::cout << "(" << numerator << " / " << denominator << ")" << std::endl;
+	}
+
+};
+int main()
+{
+	long chisl0 = 0, znam0 = 0, chisl1 = 0, znam1 = 0;
+	cin >> chisl0 >> znam0 >> chisl1 >> znam1;
+	Fraction a = { chisl0, znam0 };
+	Fraction b = { chisl1, znam1 };
+
+	const Fraction& r1 = a.sum(b);
+	const Fraction& r2 = a.subtraction(b);
+	const Fraction& r3 = a.multiplication(b);
+	const Fraction& r4 = a.division(b);
+
+	r1.print();
+	r2.print();
+	r3.print();
+	r4.print();
+	
+	return 0;
+}
